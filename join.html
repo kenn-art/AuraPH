@@ -48,12 +48,14 @@
 
     .menu-toggle {
       display: none;
-      font-size: 28px;
-      background-color: transparent;
-      border: none;
+      background-color: #4d3434;
       color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 18px;
       cursor: pointer;
-      margin: 10px;
+      width: 100%;
+      text-align: left;
     }
 
     nav {
@@ -77,6 +79,7 @@
       padding: 6px 12px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
+      display: block;
     }
 
     nav a:hover {
@@ -148,29 +151,30 @@
       background-color: #125ecf;
     }
 
-    /* Mobile styles */
+    /* Responsive Styles */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
-        position: absolute;
-        right: 15px;
-        top: 20px;
-        z-index: 1000;
       }
 
       nav {
-        display: none;
         flex-direction: column;
-        align-items: center;
-        width: 100%;
+        display: none;
+        padding: 0;
       }
 
-      nav.active {
+      nav.show {
         display: flex;
       }
 
       nav li {
-        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      nav a {
+        padding: 10px 0;
       }
     }
   </style>
@@ -180,10 +184,11 @@
     <img src="Logo.png" alt="Aura Family Logo">
     <h1>Aura Management</h1>
     <p>Official Bigo Live Family</p>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
-  <nav id="mainMenu">
+  <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('show')">☰ Menu</button>
+
+  <nav>
     <li><a href="index.html">Home</a></li>
     <li><a href="Functionary.html">Aura Functionary</a></li>
     <li><a href="branches.html">Branches</a></li>
@@ -194,42 +199,49 @@
   <div class="container">
     <h2>Connect with Aura Recruiters</h2>
     <div class="agent-grid">
-      <!-- Repeat this block for each agent -->
+      <!-- Agent Cards -->
       <div class="agent-card">
         <img src="ems.jpg" alt="EMS" class="agent-photo">
         <div class="agent-name">EMS</div>
         <a href="https://www.facebook.com/emi.rose.cruz.2024" target="_blank" class="fb-button">Message EMS</a>
       </div>
+
       <div class="agent-card">
         <img src="Sk.jpg" alt="SKILLUA" class="agent-photo">
         <div class="agent-name">SKILLUA</div>
         <a href="https://www.facebook.com/jayson.galang.616640" target="_blank" class="fb-button">Message SKILLUA</a>
       </div>
+
       <div class="agent-card">
         <img src="andrea.png" alt="ANDREA" class="agent-photo">
         <div class="agent-name">ANDREA</div>
         <a href="https://www.facebook.com/AeriiChanDesuuu" target="_blank" class="fb-button">Message ANDREA</a>
       </div>
+
       <div class="agent-card">
         <img src="durp.jpg" alt="DURP" class="agent-photo">
         <div class="agent-name">DURP</div>
         <a href="https://www.facebook.com/profile.php?id=61577578149494" target="_blank" class="fb-button">Message DURP</a>
       </div>
+
       <div class="agent-card">
         <img src="maine.png" alt="MAINE" class="agent-photo">
         <div class="agent-name">MAINE</div>
         <a href="https://www.facebook.com/faith.tagomatamolina" target="_blank" class="fb-button">Message MAINE</a>
       </div>
+
       <div class="agent-card">
         <img src="Kenn.jpg" alt="KENN" class="agent-photo">
         <div class="agent-name">KENN</div>
         <a href="https://www.facebook.com/itzkennieeee" target="_blank" class="fb-button">Message KENN</a>
       </div>
+
       <div class="agent-card">
         <img src="ryy.png" alt="RYY" class="agent-photo">
         <div class="agent-name">RYY</div>
         <a href="https://www.facebook.com/GeneJoyR/" target="_blank" class="fb-button">Message RYY</a>
       </div>
+
       <div class="agent-card">
         <img src="yumeko.png" alt="YUMEKO" class="agent-photo">
         <div class="agent-name">YUMEKO</div>
@@ -238,11 +250,5 @@
     </div>
   </div>
 
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('mainMenu');
-      nav.classList.toggle('active');
-    }
-  </script>
 </body>
 </html>
