@@ -38,6 +38,7 @@
 
     .nav-container {
       background-color: #4d3434;
+      position: relative;
     }
 
     .menu-toggle {
@@ -136,12 +137,14 @@
       nav.active {
         display: flex;
         background-color: #4d3434;
-        padding: 10px;
+        padding: 10px 0;
+        flex-direction: column;
       }
 
       nav li {
         width: 100%;
         margin-bottom: 10px;
+        padding: 0 15px;
       }
 
       nav a {
