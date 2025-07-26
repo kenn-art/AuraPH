@@ -38,12 +38,11 @@
 
     .nav-container {
       background-color: #4d3434;
-      position: relative;
     }
 
     .menu-toggle {
       display: none;
-      background-color: none;
+      background-color: #4d3434;
       color: white;
       padding: 10px 15px;
       font-size: 20px;
@@ -101,7 +100,8 @@
     .branch-card {
       background-color: #f9f9f9;
       border: 1px solid #ddd;
-      padding: 25px;
+      padding: 40px;
+      min-height: 250px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -112,14 +112,50 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.1);
     }
 
-    .branch-card h3 {
-      color: #4e342e;
-      margin-bottom: 10px;
+    .branch-logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
     }
 
-    .branch-card p {
-      color: #333;
-    }
+.branch-clover {
+  background-image: url('clover.png');
+}
+
+.branch-chillean {
+  background-image: url('chillean.png');
+}
+
+.branch-phoenix {
+  background-image: url('phoenix.png');
+}
+
+/* Common background styling for all branch cards */
+.branch-card {
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.branch-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay for text readability */
+  z-index: 0;
+}
+
+.branch-card h3,
+.branch-card p {
+  position: relative;
+  z-index: 1;
+}
 
     /* Responsive Navigation */
     @media (max-width: 768px) {
@@ -137,14 +173,12 @@
       nav.active {
         display: flex;
         background-color: #4d3434;
-        padding: 10px 0;
-        flex-direction: column;
+        padding: 10px;
       }
 
       nav li {
         width: 100%;
         margin-bottom: 10px;
-        padding: 0 15px;
       }
 
       nav a {
@@ -157,7 +191,7 @@
 <body>
 
   <header> 
-    <img src="Logo.png" alt="Aura Family Logo">
+    <img src="logo.png" alt="Aura Family Logo">
     <h1> Aura Family Branches </h1>
     <p>Explore the core teams of the Aura Family</p>
   </header>
@@ -175,20 +209,20 @@
 
   <section class="branch-section">
     <h2>Our Branches</h2>
-    <div class="branches">
-      <div class="branch-card">
-        <h3>Aura CloverLeaf🍀</h3>
-        <p>The elite and founding branch, home to top-tier Aura talent.</p>
-      </div>
-      <div class="branch-card">
-        <h3>Aura Chillean🦩</h3>
-        <p>New and rising streamers growing under Aura’s mentorship.</p>
-      </div>
-      <div class="branch-card">
-        <h3>Aura Phoenix🐦🔥</h3>
-        <p>Highly influential members who lead with loyalty and charisma.</p>
-      </div>
+  <div class="branches">
+    <div class="branch-card branch-clover">
+      <h3>Aura CloverLeaf🍀</h3>
+    <p>The elite and founding branch, home to top-tier Aura talent.</p>
     </div>
+     <div class="branch-card branch-chillean">
+      <h3>Aura Chillean🦩</h3>
+      <p>New and rising streamers growing under Aura’s mentorship.</p>
+     </div>
+     <div class="branch-card branch-phoenix">
+       <h3>Aura Phoenix🐦🔥</h3>
+       <p>Highly influential members who lead with loyalty and charisma.</p>
+     </div>
+     </div>
   </section>
 
   <script>
