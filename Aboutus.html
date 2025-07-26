@@ -20,36 +20,32 @@
 
     header {
       padding: 20px;
+      text-align: center;
       background-color: #ffffff;
       color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       position: relative;
     }
 
     header img {
-      height: 60px;
+      height: 100px;
       opacity: 0.9;
+      margin-bottom: 10px;
     }
 
-    header h1 {
-      font-size: 1.6em;
-      flex-grow: 1;
-      text-align: center;
+    h1 {
+      font-size: 2.8em;
       margin: 0;
+      letter-spacing: 1px;
     }
 
     header p {
-      font-size: 0.9em;
       margin-top: 5px;
-      text-align: center;
-      width: 100%;
+      font-size: 1.1em;
     }
 
     .menu-toggle {
       display: none;
-      font-size: 1.8em;
+      font-size: 2em;
       cursor: pointer;
       position: absolute;
       right: 20px;
@@ -88,22 +84,44 @@
       background-color: #795548;
     }
 
+    /* Mobile Styles */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
 
       nav ul {
-        flex-direction: column;
-        align-items: center;
         display: none;
+        position: absolute;
+        right: 20px;
+        top: 80px;
+        background-color: #4d3434;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 10px 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        width: 180px;
+        z-index: 1000;
       }
 
       nav ul.active {
         display: flex;
       }
+
+      nav li {
+        width: 100%;
+      }
+
+      nav a {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+      }
     }
 
+    /* Card Section */
     .portfolio-section {
       max-width: 800px;
       margin: 60px auto;
@@ -149,9 +167,10 @@
 <body>
 
   <header>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <img src="Logo.png" alt="Aura Family Logo">
     <h1>About Aura Management</h1>
-    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <p>Official Bigo Live Family</p>
   </header>
 
   <nav>
@@ -164,7 +183,7 @@
     </ul>
   </nav>
 
-  <!-- About Aura (Card Section) -->
+  <!-- Card Section -->
   <section class="portfolio-section">
     <h1 class="portfolio-title">About Aura Family</h1>
     <div class="card-container">
@@ -193,8 +212,7 @@
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('active');
+      document.getElementById('menu').classList.toggle('active');
     }
   </script>
 </body>
