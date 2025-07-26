@@ -25,30 +25,32 @@
       text-align: center;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
     header img {
-      height: 50px;
+      height: 100px;
       opacity: 0.9;
       margin-bottom: 10px;
     }
+
     nav {
+      background-color: #4d3434;
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
       gap: 25px;
-       background-color: #4d3434;      
-       padding: 12px;
-      list-style: none;
     }
 
-    nav li {
-      list-style: none;
-    }
-
-    nav a {
+    .nav-links li a {
       text-decoration: none;
       color: white;
       font-weight: 600;
@@ -57,8 +59,40 @@
       transition: background-color 0.3s ease;
     }
 
-    nav a:hover {
-      background-color: #795548; /* Light Brown */
+    .nav-links li a:hover {
+      background-color: #795548;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #4d3434;
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
     }
 
     .branch-section {
@@ -68,7 +102,6 @@
 
     .branch-section h2 {
       font-size: 2em;
-      color: #000000;
       margin-bottom: 40px;
     }
 
@@ -102,46 +135,57 @@
     .branch-card p {
       color: #333;
     }
-
-
   </style>
 </head>
 <body>
 
-  <header> 
-    <img src="Logo.png" alt="Aura Family Logo">
-    <h1> Aura Family Branches </h1>
-    <p>Explore the core teams of the Aura Family</p>
-  </header>
+<header> 
+  <img src="logo.png" alt="Aura Family Logo">
+  <h1>Aura Family Branches</h1>
+  <p>Explore the core teams of the Aura Family</p>
+</header>
 
-  <nav>
+<nav>
+  <div class="nav-container">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="Functionary.html"> Aura Functionary</a></li>
+      <li><a href="Functionary.html">Aura Functionary</a></li>
       <li><a href="branches.html">Branches</a></li>
       <li><a href="Aboutus.html">About Us</a></li>
       <li><a href="join.html">Join Us</a></li>
-  </nav>
-  </nav>
-  <section class="branch-section">
+    </ul>
+  </div>
+</nav>
 
-    <h2> Our Branches</h2>
-    <div class="branches">
-      <div class="branch-card">
-        <h3>Aura CloverLeaf🍀</h3>
-        <p>The elite and founding branch, home to top-tier Aura talent.</p>
-      </div>
-      <div class="branch-card">
-        <h3>Aura Chillean🦩</h3>
-        <p>New and rising streamers growing under Aura’s mentorship.</p>
-      </div>
-      <div class="branch-card">
-        <h3>Aura Phoenix🐦🔥</h3>
-        <p>Highly influential members who lead with loyalty and charisma.</p>
-      </div>
+<section class="branch-section">
+  <h2>Our Branches</h2>
+  <div class="branches">
+    <div class="branch-card">
+      <h3>Aura CloverLeaf🍀</h3>
+      <p>The elite and founding branch, home to top-tier Aura talent.</p>
     </div>
-  </section>
+    <div class="branch-card">
+      <h3>Aura Chillean🦩</h3>
+      <p>New and rising streamers growing under Aura’s mentorship.</p>
+    </div>
+    <div class="branch-card">
+      <h3>Aura Phoenix🐦🔥</h3>
+      <p>Highly influential members who lead with loyalty and charisma.</p>
+    </div>
+  </div>
+</section>
 
-
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.classList.toggle("active");
+  }
+</script>
 
 </body>
 </html>
