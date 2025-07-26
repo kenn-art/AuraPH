@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +23,10 @@
       padding: 20px;
       text-align: center;
       background-color: #ffffff;
-      color: rgb(0, 0, 0);
+      color: #000000;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
     }
 
     header img {
@@ -46,27 +46,22 @@
       font-size: 1.1em;
     }
 
-    .nav-toggle {
+    .menu-toggle {
       display: none;
-      background-color: #4d3434;
-      color: white;
-      font-size: 1.5em;
-      padding: 10px 15px;
+      font-size: 1.8em;
+      background: none;
       border: none;
+      color: #fff;
       cursor: pointer;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 999;
+      margin-bottom: 10px;
     }
 
-    nav ul {
+    nav {
       display: flex;
       justify-content: center;
       gap: 25px;
       background-color: #4d3434;
       padding: 12px;
-      list-style: none;
       flex-wrap: wrap;
     }
 
@@ -120,61 +115,55 @@
       background-color: #2d1b14;
     }
 
-    /* 🔧 Mobile responsiveness */
+    /* Mobile responsive menu */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-
-      .hero {
-        padding: 50px 15px;
-      }
-
-      .nav-toggle {
+      .menu-toggle {
         display: block;
+        background-color: #4d3434;
+        padding: 10px 20px;
+        color: white;
       }
 
-      nav ul {
-        display: none;
+      nav {
         flex-direction: column;
-        text-align: center;
-        padding: 0;
+        align-items: center;
+        display: none;
       }
 
-      nav ul.show {
+      nav.show {
         display: flex;
       }
 
       nav li {
         margin: 10px 0;
       }
+
+      h1 {
+        font-size: 2.2em;
+      }
+
+      .hero {
+        padding: 50px 20px;
+      }
     }
   </style>
-
-  <script>
-    // Toggle menu on small screens
-    function toggleMenu() {
-      const menu = document.getElementById('nav-menu');
-      menu.classList.toggle('show');
-    }
-  </script>
 </head>
 <body>
   <header>
     <img src="Logo.png" alt="Aura Family Logo">
     <h1>Aura Management</h1>
     <p>Official Bigo Live Family</p>
-    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
-  <nav>
-    <ul id="nav-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Functionary.html">Aura Functionary</a></li>
-      <li><a href="branches.html">Branches</a></li>
-      <li><a href="Aboutus.html">About Us</a></li>
-      <li><a href="join.html">Join Us</a></li>
-    </ul>
+  <!-- Hamburger Menu Toggle -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+  <nav id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Functionary.html">Aura Functionary</a></li>
+    <li><a href="branches.html">Branches</a></li>
+    <li><a href="AboutUs.html">About Us</a></li>
+    <li><a href="join.html">Join Us</a></li>
   </nav>
 
   <section class="hero">
@@ -182,5 +171,12 @@
     <p>Where energy meets unity. Join our growing family on Bigo Live!</p>
     <a href="https://www.facebook.com/Auratalentmanagement" class="btn">Join the Aura</a>
   </section>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
