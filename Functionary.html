@@ -97,7 +97,7 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     }
 
-    /* Mobile Styles */
+    /* === Mobile Toggle Menu === */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -106,7 +106,7 @@
       nav {
         display: none;
         position: absolute;
-        top: 130px; /* below header */
+        top: 130px;
         right: 20px;
         background-color: #4d3434;
         border-radius: 8px;
@@ -136,6 +136,26 @@
       }
     }
 
+    /* === Desktop Menu === */
+    @media (min-width: 769px) {
+      nav {
+        display: block !important;
+        position: static;
+        background-color: #4d3434;
+        padding: 12px;
+      }
+
+      nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+    }
+
     @media (max-width: 600px) {
       header h1, header h2 {
         font-size: 1.8rem;
@@ -157,7 +177,7 @@
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
-  <!-- Navigation Bar (outside header for desktop layout) -->
+  <!-- Navigation Bar -->
   <nav id="main-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
