@@ -24,9 +24,6 @@
       text-align: center;
       padding: 20px;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     header img {
@@ -46,45 +43,50 @@
       font-size: 1.1em;
     }
 
+    .menu-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
     .menu-toggle {
-      display: none;
       background-color: #4d3434;
       color: white;
       font-size: 1.5em;
       padding: 10px 15px;
       border: none;
       cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .dropdown-menu {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      border-radius: 5px;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
+      top: 110%;
+      right: 0;
       background-color: #4d3434;
-      padding: 12px;
-      list-style: none;
-      flex-wrap: wrap;
+      border-radius: 8px;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      z-index: 999;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
-    nav li {
-      list-style: none;
+    .dropdown-menu.show {
+      display: flex;
     }
 
-    nav a {
-      text-decoration: none;
+    .dropdown-menu a {
       color: white;
+      text-decoration: none;
+      padding: 12px 16px;
+      display: block;
+      text-align: left;
       font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.2s ease;
     }
 
-    nav a:hover {
+    .dropdown-menu a:hover {
       background-color: #795548;
     }
 
@@ -121,27 +123,13 @@
       background-color: #2d1b14;
     }
 
-    /* Responsive styles */
-    @media (max-width: 600px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: center;
+    @media (min-width: 601px) {
+      .menu-wrapper {
         display: none;
-        margin-top: 10px;
       }
+    }
 
-      nav ul.show {
-        display: flex;
-      }
-
-      nav li {
-        margin: 10px 0;
-      }
-
+    @media (max-width: 600px) {
       h1 {
         font-size: 2.2em;
       }
@@ -154,21 +142,20 @@
 </head>
 <body>
   <header>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="menu-wrapper">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="index.html">Home</a>
+        <a href="Functionary.html">Aura Functionary</a>
+        <a href="branches.html">Branches</a>
+        <a href="Aboutus.html">About Us</a>
+        <a href="join.html">Join Us</a>
+      </div>
+    </div>
+
     <img src="Logo.png" alt="Aura Family Logo">
     <h1>Aura Management</h1>
     <p>Official Bigo Live Family</p>
-
-    <!-- Navigation inside the header -->
-    <nav>
-      <ul id="mobileMenu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Functionary.html">Aura Functionary</a></li>
-        <li><a href="branches.html">Branches</a></li>
-        <li><a href="Aboutus.html">About Us</a></li>
-        <li><a href="join.html">Join Us</a></li>
-      </ul>
-    </nav>
   </header>
 
   <section class="hero">
@@ -179,7 +166,7 @@
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
+      const menu = document.getElementById('dropdownMenu');
       menu.classList.toggle('show');
     }
   </script>
