@@ -1,0 +1,145 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aura Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #9b7171;
+      color: #000000;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #ffffff; /* Brown */
+      color: rgb(0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header img {
+      height: 100px;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 5px;
+      font-size: 1.1em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      background-color: #4d3434; /* Black-ish */
+      padding: 12px;
+      list-style: none;
+    }
+
+    nav li {
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #795548; /* Light Brown */
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #9b7171;
+      color: #333;
+    }
+
+    .hero h2 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+      color: #000000; /* Brown */
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      color: #000000;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background-color: #000000; /* Brown */
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #2d1b14; /* Darker brown */
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: 2.2em;
+      }
+
+      .hero {
+        padding: 50px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+<img src="Logo.png" alt="Aura Family Logo" >
+
+
+    <h1> Aura Management </h1>
+    <p>Official Bigo Live Family</p>
+  </header>
+  <nav>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Functionary.html"> Aura Functionary</a></li>
+      <li><a href="branches.html">Branches</a></li>
+      <li><a href="AboutUs.html">About Us</a></li>
+      <li><a href="join.html">Join Us</a></li>
+  </nav>
+  <section class="hero">
+    <h2>Welcome to the Aura Family</h2>
+    <p>Where energy meets unity. Join our growing family on Bigo Live!</p>
+    <a href="https://www.facebook.com/Auratalentmanagement" class="btn">Join the Aura</a>
+  </section>
+</body>
+</html>
