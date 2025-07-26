@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #9b7171;
+      background-color: #eecbcb;
       color: #000000;
     }
 
@@ -23,9 +23,10 @@
       color: rgb(0, 0, 0);
       padding: 30px 20px;
       text-align: center;
+      position: relative;
     }
 
-    header h1 {
+    header h1, header h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
@@ -36,28 +37,33 @@
       margin-bottom: 10px;
     }
 
-    .nav-container {
-      background-color: #4d3434;
-    }
-
     .menu-toggle {
       display: none;
+      font-size: 28px;
+      padding: 10px 20px;
       background-color: #4d3434;
       color: white;
-      padding: 10px 15px;
-      font-size: 20px;
       cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      border-radius: 5px;
       border: none;
-      width: 100%;
-      text-align: left;
     }
 
     nav {
+      background-color: #4d3434;
+      padding: 12px;
+    }
+
+    nav ul {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      padding: 12px;
-      flex-wrap: wrap;
+      list-style: none;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
     }
 
     nav li {
@@ -68,10 +74,9 @@
       text-decoration: none;
       color: white;
       font-weight: 600;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
-      display: inline-block;
     }
 
     nav a:hover {
@@ -137,34 +142,70 @@
     .branch-phoenix {
       background-image: url('phoenix.png');
     }
-
-    /* Responsive Navigation */
+    /* === Mobile Toggle Menu === */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
 
       nav {
-        max-height: 0;
-        overflow: hidden;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
-        transition: max-height 0.4s ease-in-out;
+        display: none;
+        position: absolute;
+        top: 130px;
+        right: 20px;
+        background-color: #4d3434;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        width: 180px;
+        z-index: 999;
       }
 
-      nav.active {
-        max-height: 500px;
+      nav.show {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
         padding: 10px;
+        gap: 10px;
       }
 
       nav li {
         width: 100%;
-        margin-bottom: 10px;
       }
 
       nav a {
+        display: block;
         width: 100%;
+      }
+    }
+    /* === Desktop Menu === */
+    @media (min-width: 769px) {
+      nav {
+        display: block !important;
+        position: static;
+        background-color: #4d3434;
+        padding: 12px;
+      }
+
+      nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1, header h2 {
+        font-size: 1.8rem;
+      }
+
+      .container {
         padding: 10px;
       }
     }
@@ -178,6 +219,7 @@
     <p>Explore the core teams of the Aura Family</p>
   </header>
 
+    <!-- Mobile Menu Toggle Button -->
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
@@ -197,15 +239,15 @@
     <h2>Our Branches</h2>
     <div class="branches">
       <div class="branch-card branch-clover">
-        <h3>Aura CloverLeaf🍀</h3>
+        <h3>AURA CLOVERLEAF</h3>
         <p>The elite and founding branch, home to top-tier Aura talent.</p>
       </div>
       <div class="branch-card branch-chillean">
-        <h3>Aura Chillean🦩</h3>
+        <h3>AURA CHELLIAN</h3>
         <p>New and rising streamers growing under Aura’s mentorship.</p>
       </div>
       <div class="branch-card branch-phoenix">
-        <h3>Aura Phoenix🐦🔥</h3>
+        <h3>AURA PHOENIX</h3>
         <p>Highly influential members who lead with loyalty and charisma.</p>
       </div>
     </div>
