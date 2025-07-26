@@ -20,7 +20,6 @@
 
     header {
       background-color: #ffffff;
-      color: #000000;
       text-align: center;
       padding: 20px;
       position: relative;
@@ -44,8 +43,10 @@
     }
 
     .menu-wrapper {
-      position: relative;
-      display: inline-block;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
     }
 
     .menu-toggle {
@@ -56,38 +57,47 @@
       border: none;
       cursor: pointer;
       border-radius: 5px;
+      position: relative;
+      width: 130px;
+      text-align: left;
     }
 
-    .dropdown-menu {
-      position: absolute;
-      top: 110%;
-      right: 0;
-      background-color: #4d3434;
-      border-radius: 8px;
-      overflow: hidden;
+    .menu-toggle.open {
+      padding-bottom: 0;
+    }
+
+    .dropdown-inside {
       display: none;
       flex-direction: column;
-      min-width: 180px;
-      z-index: 999;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      background-color: #4d3434;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 5px;
+      animation: fadeIn 0.3s ease;
     }
 
-    .dropdown-menu.show {
+    .menu-toggle.open .dropdown-inside {
       display: flex;
     }
 
-    .dropdown-menu a {
+    .dropdown-inside a {
       color: white;
       text-decoration: none;
       padding: 12px 16px;
-      display: block;
       text-align: left;
       font-weight: 600;
+      border-top: 1px solid #6d4c41;
       transition: background-color 0.2s ease;
     }
 
-    .dropdown-menu a:hover {
+    .dropdown-inside a:hover {
       background-color: #795548;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     .hero {
@@ -123,12 +133,6 @@
       background-color: #2d1b14;
     }
 
-    @media (min-width: 601px) {
-      .menu-wrapper {
-        display: none;
-      }
-    }
-
     @media (max-width: 600px) {
       h1 {
         font-size: 2.2em;
@@ -137,20 +141,26 @@
       .hero {
         padding: 50px 20px;
       }
+
+      .menu-toggle {
+        width: 100px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="menu-wrapper">
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <div class="dropdown-menu" id="dropdownMenu">
-        <a href="index.html">Home</a>
-        <a href="Functionary.html">Aura Functionary</a>
-        <a href="branches.html">Branches</a>
-        <a href="Aboutus.html">About Us</a>
-        <a href="join.html">Join Us</a>
-      </div>
+      <button class="menu-toggle" onclick="toggleMenu(this)">
+        ☰
+        <div class="dropdown-inside">
+          <a href="index.html">Home</a>
+          <a href="Functionary.html">Aura Functionary</a>
+          <a href="branches.html">Branches</a>
+          <a href="AboutUs.html">About Us</a>
+          <a href="join.html">Join Us</a>
+        </div>
+      </button>
     </div>
 
     <img src="Logo.png" alt="Aura Family Logo">
@@ -165,9 +175,8 @@
   </section>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('dropdownMenu');
-      menu.classList.toggle('show');
+    function toggleMenu(button) {
+      button.classList.toggle("open");
     }
   </script>
 </body>
