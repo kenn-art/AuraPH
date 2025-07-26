@@ -19,13 +19,13 @@
     }
 
     header {
+      padding: 20px;
+      text-align: center;
       background-color: #ffffff;
       color: rgb(0, 0, 0);
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      padding: 20px;
+      align-items: center;
       position: relative;
     }
 
@@ -48,24 +48,23 @@
 
     .nav-toggle {
       display: none;
-      background-color: transparent;
+      background-color: #4d3434;
+      color: white;
+      font-size: 1.5em;
+      padding: 10px 15px;
       border: none;
-      font-size: 1.8em;
-      color: #4d3434;
       cursor: pointer;
       position: absolute;
-      right: 20px;
       top: 20px;
-    }
-
-    nav {
-      background-color: #4d3434;
+      right: 20px;
+      z-index: 999;
     }
 
     nav ul {
       display: flex;
       justify-content: center;
       gap: 25px;
+      background-color: #4d3434;
       padding: 12px;
       list-style: none;
       flex-wrap: wrap;
@@ -153,6 +152,7 @@
   </style>
 
   <script>
+    // Toggle menu on small screens
     function toggleMenu() {
       const menu = document.getElementById('nav-menu');
       menu.classList.toggle('show');
