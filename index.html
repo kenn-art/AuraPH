@@ -20,39 +20,48 @@
 
     header {
       padding: 20px;
-      text-align: center;
       background-color: #ffffff;
       color: rgb(0, 0, 0);
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    header .branding {
+      display: flex;
       flex-direction: column;
       align-items: center;
+      flex-grow: 1;
     }
 
     header img {
       height: 100px;
       opacity: 0.9;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     h1 {
-      font-size: 2.8em;
+      font-size: 2.4em;
       margin: 0;
       letter-spacing: 1px;
     }
 
     header p {
-      margin-top: 5px;
-      font-size: 1.1em;
+      font-size: 1em;
+      margin-top: 2px;
     }
 
     .nav-toggle {
       display: none;
-      background-color: #4d3434;
-      color: white;
-      font-size: 1.5em;
-      padding: 10px 15px;
+      background: none;
       border: none;
+      font-size: 2em;
       cursor: pointer;
+      color: #4d3434;
+      position: absolute;
+      right: 20px;
+      top: 25px;
     }
 
     nav ul {
@@ -116,18 +125,9 @@
     }
 
     /* 🔧 Mobile responsiveness */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-
-      .hero {
-        padding: 50px 15px;
-      }
-
+    @media (max-width: 768px) {
       .nav-toggle {
         display: block;
-        margin: 10px auto;
       }
 
       nav ul {
@@ -144,11 +144,27 @@
       nav li {
         margin: 10px 0;
       }
+
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      header .branding {
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      header img {
+        height: 80px;
+      }
     }
   </style>
-
   <script>
-    // Toggle menu on small screens
+    // Toggle menu on mobile
     function toggleMenu() {
       const menu = document.getElementById('nav-menu');
       menu.classList.toggle('show');
@@ -156,13 +172,16 @@
   </script>
 </head>
 <body>
+
   <header>
-    <img src="Logo.png" alt="Aura Family Logo">
-    <h1>Aura Management</h1>
-    <p>Official Bigo Live Family</p>
+    <div class="branding">
+      <img src="Logo.png" alt="Aura Family Logo">
+      <h1>Aura Management</h1>
+      <p>Official Bigo Live Family</p>
+    </div>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
-  <button class="nav-toggle" onclick="toggleMenu()">☰ Menu</button>
   <nav>
     <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
@@ -178,5 +197,6 @@
     <p>Where energy meets unity. Join our growing family on Bigo Live!</p>
     <a href="https://www.facebook.com/Auratalentmanagement" class="btn">Join the Aura</a>
   </section>
+
 </body>
 </html>
