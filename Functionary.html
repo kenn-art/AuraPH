@@ -25,18 +25,23 @@
       text-align: center;
     }
 
-    header h1 {
+    header h1, header h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
 
     nav {
+      background-color: #4d3434;
+      padding: 12px;
+    }
+
+    nav ul {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      background-color: #4d3434;/* Black-ish */
-      padding: 12px;
-      list-style: none;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
     }
 
     nav li {
@@ -47,18 +52,15 @@
       text-decoration: none;
       color: white;
       font-weight: 600;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
 
     nav a:hover {
-      background-color: #795548; /* Light Brown */
-    }
-
-    nav a:hover {
       background-color: #795548;
     }
+
     .container {
       max-width: 900px;
       margin: 0 auto;
@@ -68,51 +70,51 @@
 
     .functionary-img {
       width: 100%;
-      max-width: 600px;
+      height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #000000;
-      color: #ffffff;
-      font-size: 0.9rem;
-    }
+img {
+  max-width: 100%;
+  height: auto;
+}
 
     @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
+      header h1, header h2 {
+        font-size: 1.8rem;
       }
 
-      header h1 {
-        font-size: 2rem;
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
       }
     }
   </style>
 </head>
 <body>
-    <header>
-    <img src="Logo.png" alt="Aura Family Logo" style="height: 100px; opacity: 0.85; filter: drop-shadow(0 0 10px white);">
+  <header>
+    <img src="Logo.png" alt="Aura Family Logo" style="height: 80px; opacity: 0.85; filter: drop-shadow(0 0 10px white);">
     <h2>Aura Functionary</h2>
-    <p>Meet the Officer's of the Aura Family</p>
-    </header>
+    <p>Meet the Officers of the Aura Family</p>
+  </header>
+
   <!-- Navigation Bar -->
   <nav>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Functionary.html">Aura Functionary</a></li>
-        <li><a href="branches.html">Branches</a></li>
-        <li><a href="Aboutus.html">About Us</a></li>
-        <li><a href="join.html">Join Us</a></li>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Functionary.html">Aura Functionary</a></li>
+      <li><a href="branches.html">Branches</a></li>
+      <li><a href="Aboutus.html">About Us</a></li>
+      <li><a href="join.html">Join Us</a></li>
+    </ul>
   </nav>
-  
-  <!-- Main Image Container -->
+
+  <!-- Main Image -->
   <div class="container">
     <img src="Functionary.png" alt="Aura Functionary" class="functionary-img">
   </div>
+
 
 </body>
 </html>
