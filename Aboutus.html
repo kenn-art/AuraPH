@@ -67,10 +67,6 @@
       margin: 0;
     }
 
-    nav li {
-      list-style: none;
-    }
-
     nav a {
       text-decoration: none;
       color: white;
@@ -84,7 +80,6 @@
       background-color: #795548;
     }
 
-    /* Mobile Styles */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -93,28 +88,28 @@
       nav ul {
         display: none;
         flex-direction: column;
-        background-color: #4d3434;
         position: absolute;
         right: 20px;
         top: 80px;
-        width: 180px;
-        border-radius: 10px;
+        width: 200px;
+        background-color: #4d3434;
         padding: 10px 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
       }
 
-      nav ul.active {
+      nav ul.show {
         display: flex;
       }
 
       nav li {
-        width: 100%;
+        text-align: left;
       }
 
       nav a {
         display: block;
         padding: 10px 20px;
-        width: 100%;
       }
     }
 
@@ -207,7 +202,8 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('active');
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
     }
   </script>
 
