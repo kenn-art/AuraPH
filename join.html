@@ -19,60 +19,51 @@
     }
 
     header {
-      padding: 20px;
-      text-align: center;
       background-color: #ffffff;
       color: rgb(0, 0, 0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1, header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
     header img {
       height: 100px;
-      opacity: 0.85;
-      filter: drop-shadow(0 0 10px white);
+      opacity: 0.9;
       margin-bottom: 10px;
-    }
-
-    h1 {
-      font-size: 2.8em;
-      margin: 0;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      margin-top: 5px;
-      font-size: 1.1em;
-    }
-
-    .menu-wrapper {
-      display: none;
-      flex-direction: column;
-      background-color: #4d3434;
-      width: 100%;
     }
 
     .menu-toggle {
       display: none;
+      font-size: 28px;
+      padding: 10px 20px;
       background-color: #4d3434;
       color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 20px;
       cursor: pointer;
-      width: 100%;
-      text-align: left;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      border-radius: 5px;
+      border: none;
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
       background-color: #4d3434;
       padding: 12px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
       list-style: none;
-      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
     }
 
     nav li {
@@ -83,15 +74,15 @@
       text-decoration: none;
       color: white;
       font-weight: 600;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
-      display: block;
     }
 
     nav a:hover {
       background-color: #795548;
     }
+
 
     .container {
       max-width: 1200px;
@@ -158,54 +149,72 @@
       background-color: #125ecf;
     }
 
-    /* Responsive Styles */
+    /* === Mobile Toggle Menu === */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
 
       nav {
-        flex-direction: column;
         display: none;
-        padding: 0;
-        width: 100%;
+        position: absolute;
+        top: 130px;
+        right: 20px;
+        background-color: #4d3434;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        width: 180px;
+        z-index: 999;
       }
 
       nav.show {
-        display: flex;
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
       }
 
       nav li {
         width: 100%;
-        text-align: center;
-        padding: 10px 0;
       }
 
       nav a {
-        padding: 10px 0;
-      }
-
-      .menu-wrapper {
-        display: flex;
-      }
-
-      /* Desktop nav is hidden inside menu-wrapper */
-      .desktop-nav {
-        display: none;
+        display: block;
+        width: 100%;
       }
     }
 
+    /* === Desktop Menu === */
     @media (min-width: 769px) {
-      .menu-wrapper {
-        display: none;
+      nav {
+        display: block !important;
+        position: static;
+        background-color: #4d3434;
+        padding: 12px;
+      }
+
+      nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
       }
 
       .menu-toggle {
         display: none;
       }
+    }
 
-      .desktop-nav {
-        display: flex;
+    @media (max-width: 600px) {
+      header h1, header h2 {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 10px;
       }
     }
   </style>
@@ -217,25 +226,19 @@
     <p>Official Bigo Live Family</p>
   </header>
 
-  <!-- Mobile menu button and nav inside -->
-  <div class="menu-wrapper">
-    <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('show')">☰ Menu</button>
-    <nav>
+    <!-- Mobile Menu Toggle Button -->
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav id="main-nav">
+    <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="Functionary.html">Aura Functionary</a></li>
       <li><a href="branches.html">Branches</a></li>
       <li><a href="Aboutus.html">About Us</a></li>
       <li><a href="join.html">Join Us</a></li>
-    </nav>
-  </div>
-
-  <!-- Desktop nav -->
-  <nav class="desktop-nav">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="Functionary.html">Aura Functionary</a></li>
-    <li><a href="branches.html">Branches</a></li>
-    <li><a href="Aboutus.html">About Us</a></li>
-    <li><a href="join.html">Join Us</a></li>
+    </ul>
   </nav>
 
   <div class="container">
