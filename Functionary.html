@@ -30,6 +30,22 @@
       margin-bottom: 10px;
     }
 
+    header img {
+      height: 100px;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      padding: 10px 20px;
+      background-color: #4d3434;
+      color: white;
+      cursor: pointer;
+      text-align: left;
+    }
+
     nav {
       background-color: #4d3434;
       padding: 12px;
@@ -74,33 +90,51 @@
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     }
-img {
-  max-width: 100%;
-  height: auto;
-}
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+      }
+
+      nav.show ul {
+        display: flex;
+      }
+
+      nav a {
+        display: block;
+        width: 100%;
+      }
+    }
 
     @media (max-width: 600px) {
       header h1, header h2 {
         font-size: 1.8rem;
       }
 
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
+      .container {
+        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="Logo.png" alt="Aura Family Logo" style="height: 80px; opacity: 0.85; filter: drop-shadow(0 0 10px white);">
+    <img src="Logo.png" alt="Aura Family Logo">
     <h2>Aura Functionary</h2>
     <p>Meet the Officers of the Aura Family</p>
   </header>
 
+  <!-- Menu toggle for mobile -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰ Menu</div>
+
   <!-- Navigation Bar -->
-  <nav>
+  <nav id="main-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="Functionary.html">Aura Functionary</a></li>
@@ -115,6 +149,11 @@ img {
     <img src="Functionary.png" alt="Aura Functionary" class="functionary-img">
   </div>
 
-
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("main-nav");
+      nav.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
