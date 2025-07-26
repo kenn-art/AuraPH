@@ -49,7 +49,7 @@
       cursor: pointer;
       position: absolute;
       right: 20px;
-      top: 25px;
+      top: 20px;
       color: #000;
       z-index: 1001;
     }
@@ -90,7 +90,7 @@
         flex-direction: column;
         position: absolute;
         right: 20px;
-        top: 80px;
+        top: 60px;
         width: 200px;
         background-color: #4d3434;
         padding: 10px 0;
@@ -119,6 +119,7 @@
       margin: 60px auto;
       padding: 0 20px;
     }
+
     .portfolio-title {
       text-align: center;
       font-size: 2em;
@@ -126,13 +127,15 @@
       color: #fff5e1;
       text-shadow: 0 0 5px #000;
     }
+
     .card-container {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
+
     .info-card {
-      background: rgba(60, 40, 20, 0.4); /* brown tint */
+      background: rgba(60, 40, 20, 0.4);
       padding: 20px;
       border-radius: 20px;
       backdrop-filter: blur(10px);
@@ -141,59 +144,58 @@
       text-align: left;
       transition: transform 0.3s ease;
     }
+
     .info-card h3 {
       margin-top: 0;
       font-size: 1.2em;
-      color: #ffe4c4; /* light beige */
+      color: #ffe4c4;
     }
+
     .info-card:hover {
       transform: scale(1.05);
     }
   </style>
-
 </head>
 <body>
+
   <header>
     <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <img src="Logo.png" alt="Aura Family Logo">
     <h1>Aura Family</h1>
     <p>Welcome to our official Bigo Live family page</p>
-  </header>
 
-  <nav>
-    <ul id="mobileMenu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Functionary.html">Aura Functionary</a></li>
-      <li><a href="branches.html">Branches</a></li>
-      <li><a href="Aboutus.html">About Us</a></li>
-      <li><a href="join.html">Join Us</a></li>
-    </ul>
-  </nav>
+    <!-- Move nav inside header -->
+    <nav>
+      <ul id="mobileMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Functionary.html">Aura Functionary</a></li>
+        <li><a href="branches.html">Branches</a></li>
+        <li><a href="Aboutus.html">About Us</a></li>
+        <li><a href="join.html">Join Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- About Aura (Card Section) -->
   <section class="portfolio-section">
-    <h1 class="portfolio-title"> About Aura Family </h1>
+    <h1 class="portfolio-title">About Aura Family</h1>
     <div class="card-container">
       <div class="info-card">
-        <h3> Who We Are</h3>
+        <h3>Who We Are</h3>
         <p>Aura Family is a vibrant community of Bigo Live streamers who uplift, entertain, and support each other through creative and engaging content.</p>
       </div>
-
       <div class="info-card">
         <h3>🎯 Our Goal</h3>
         <p>To build a fun, friendly, and empowering environment where members grow together in popularity, talent, and positivity.</p>
       </div>
-
       <div class="info-card">
         <h3>💖 What We Value</h3>
         <p>Creativity, kindness, respect, and authenticity. We believe every member has a unique aura that adds value to the whole family.</p>
       </div>
-
       <div class="info-card">
         <h3>🎤 What We Do</h3>
         <p>We host themed streams, talent shows, group collabs, and community bonding events to keep things lively and inclusive!</p>
       </div>
-
       <div class="info-card">
         <h3>🌈 Join the Vibe</h3>
         <p>We're always open to passionate streamers who are looking to grow and vibe with a supportive family on Bigo Live.</p>
@@ -201,5 +203,11 @@
     </div>
   </section>
 
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
