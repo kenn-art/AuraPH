@@ -46,13 +46,20 @@
       font-size: 1.1em;
     }
 
+    .menu-wrapper {
+      display: none;
+      flex-direction: column;
+      background-color: #4d3434;
+      width: 100%;
+    }
+
     .menu-toggle {
       display: none;
       background-color: #4d3434;
       color: white;
       border: none;
-      padding: 10px 15px;
-      font-size: 18px;
+      padding: 12px 20px;
+      font-size: 20px;
       cursor: pointer;
       width: 100%;
       text-align: left;
@@ -161,6 +168,7 @@
         flex-direction: column;
         display: none;
         padding: 0;
+        width: 100%;
       }
 
       nav.show {
@@ -176,6 +184,29 @@
       nav a {
         padding: 10px 0;
       }
+
+      .menu-wrapper {
+        display: flex;
+      }
+
+      /* Desktop nav is hidden inside menu-wrapper */
+      .desktop-nav {
+        display: none;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-wrapper {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .desktop-nav {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -186,9 +217,20 @@
     <p>Official Bigo Live Family</p>
   </header>
 
-  <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('show')">☰ Menu</button>
+  <!-- Mobile menu button and nav inside -->
+  <div class="menu-wrapper">
+    <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('show')">☰ Menu</button>
+    <nav>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Functionary.html">Aura Functionary</a></li>
+      <li><a href="branches.html">Branches</a></li>
+      <li><a href="Aboutus.html">About Us</a></li>
+      <li><a href="join.html">Join Us</a></li>
+    </nav>
+  </div>
 
-  <nav>
+  <!-- Desktop nav -->
+  <nav class="desktop-nav">
     <li><a href="index.html">Home</a></li>
     <li><a href="Functionary.html">Aura Functionary</a></li>
     <li><a href="branches.html">Branches</a></li>
@@ -199,7 +241,6 @@
   <div class="container">
     <h2>Connect with Aura Recruiters</h2>
     <div class="agent-grid">
-      <!-- Agent Cards -->
       <div class="agent-card">
         <img src="ems.jpg" alt="EMS" class="agent-photo">
         <div class="agent-name">EMS</div>
@@ -249,12 +290,5 @@
       </div>
     </div>
   </div>
-<script>
-  // Simple mobile menu toggle script
-  document.querySelector('.menu-toggle').addEventListener('click', function () {
-    document.querySelector('nav').classList.toggle('show');
-  });
-</script>
-
 </body>
 </html>
