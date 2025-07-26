@@ -9,7 +9,7 @@
     * {
       margin: 0;
       padding: 0;
-
+      box-sizing: border-box;
     }
 
     body {
@@ -20,12 +20,9 @@
 
     header {
       padding: 20px;
-      text-align: center;
       background-color: #ffffff;
       color: rgb(0, 0, 0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
       position: relative;
     }
 
@@ -46,10 +43,9 @@
       font-size: 1.1em;
     }
 
-    /* Menu toggle button */
     .menu-toggle {
       display: none;
-      font-size: 1.8em;
+      font-size: 2em;
       background: none;
       border: none;
       color: #000;
@@ -60,19 +56,17 @@
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
       background-color: #4d3434;
       padding: 12px;
     }
 
     nav ul {
       display: flex;
+      justify-content: center;
       list-style: none;
       gap: 25px;
-      padding: 0;
       margin: 0;
+      padding: 0;
     }
 
     nav li {
@@ -97,24 +91,23 @@
       text-align: center;
       padding: 80px 20px;
       background-color: #9b7171;
-      color: #333;
     }
 
     .hero h2 {
       font-size: 2.2em;
       margin-bottom: 15px;
-      color: #000000;
+      color: #000;
     }
 
     .hero p {
       font-size: 1.1em;
       margin-bottom: 30px;
-      color: #000000;
+      color: #000;
     }
 
     .btn {
       padding: 12px 25px;
-      background-color: #000000;
+      background-color: #000;
       color: white;
       font-weight: bold;
       border-radius: 30px;
@@ -126,25 +119,38 @@
       background-color: #2d1b14;
     }
 
-    /* Mobile Styling */
+    /* --- Mobile Styles --- */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
 
       nav {
-        flex-direction: column;
-        align-items: center;
         display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #4d3434;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        width: 180px;
+        z-index: 10;
       }
 
       nav.show {
-        display: flex;
+        display: block;
       }
 
       nav ul {
         flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
         gap: 10px;
+      }
+
+      nav a {
+        display: block;
+        width: 100%;
       }
     }
   </style>
@@ -155,19 +161,20 @@
     <h1>Aura Management</h1>
     <p>Official Bigo Live Family</p>
 
-    <!-- Toggle button only visible on mobile -->
+    <!-- Toggle button -->
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  </header>
 
-  <nav id="mainNav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Functionary.html">Aura Functionary</a></li>
-      <li><a href="branches.html">Branches</a></li>
-      <li><a href="Aboutus.html">About Us</a></li>
-      <li><a href="join.html">Join Us</a></li>
-    </ul>
-  </nav>
+    <!-- Navigation menu that appears under toggle -->
+    <nav id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Functionary.html">Aura Functionary</a></li>
+        <li><a href="branches.html">Branches</a></li>
+        <li><a href="Aboutus.html">About Us</a></li>
+        <li><a href="join.html">Join Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section class="hero">
     <h2>Welcome to the Aura Family</h2>
