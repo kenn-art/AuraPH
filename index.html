@@ -19,14 +19,14 @@
     }
 
     header {
-      padding: 20px;
-      text-align: center;
       background-color: #ffffff;
       color: #000000;
+      text-align: center;
+      padding: 20px;
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
     }
 
     header img {
@@ -57,8 +57,12 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      z-index: 999;
+      z-index: 1000;
       border-radius: 5px;
+    }
+
+    nav {
+      width: 100%;
     }
 
     nav ul {
@@ -121,16 +125,16 @@
       background-color: #2d1b14;
     }
 
-    /* Mobile Styles */
+    /* Responsive */
     @media (max-width: 600px) {
       .menu-toggle {
         display: block;
       }
 
       nav ul {
-        display: none;
         flex-direction: column;
         align-items: center;
+        display: none;
       }
 
       nav ul.show {
@@ -157,17 +161,18 @@
     <img src="Logo.png" alt="Aura Family Logo">
     <h1>Aura Management</h1>
     <p>Official Bigo Live Family</p>
-
-    <nav>
-      <ul id="mobileMenu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Functionary.html">Aura Functionary</a></li>
-        <li><a href="branches.html">Branches</a></li>
-        <li><a href="Aboutus.html">About Us</a></li>
-        <li><a href="join.html">Join Us</a></li>
-      </ul>
-    </nav>
   </header>
+
+  <!-- Navigation placed below the toggle button -->
+  <nav>
+    <ul id="mobileMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Functionary.html">Aura Functionary</a></li>
+      <li><a href="branches.html">Branches</a></li>
+      <li><a href="Aboutus.html">About Us</a></li>
+      <li><a href="join.html">Join Us</a></li>
+    </ul>
+  </nav>
 
   <section class="hero">
     <h2>Welcome to the Aura Family</h2>
