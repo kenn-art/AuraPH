@@ -92,18 +92,15 @@
 
       nav ul {
         display: none;
+        flex-direction: column;
+        background-color: #4d3434;
         position: absolute;
         right: 20px;
         top: 80px;
-        background-color: #4d3434;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 10px 0;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         width: 180px;
-        z-index: 1000;
+        border-radius: 10px;
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       }
 
       nav ul.active {
@@ -116,12 +113,11 @@
 
       nav a {
         display: block;
-        width: 100%;
         padding: 10px 20px;
+        width: 100%;
       }
     }
 
-    /* Card Section */
     .portfolio-section {
       max-width: 800px;
       margin: 60px auto;
@@ -174,7 +170,7 @@
   </header>
 
   <nav>
-    <ul id="menu">
+    <ul id="mobileMenu">
       <li><a href="index.html">Home</a></li>
       <li><a href="Functionary.html">Aura Functionary</a></li>
       <li><a href="branches.html">Branches</a></li>
@@ -183,7 +179,6 @@
     </ul>
   </nav>
 
-  <!-- Card Section -->
   <section class="portfolio-section">
     <h1 class="portfolio-title">About Aura Family</h1>
     <div class="card-container">
@@ -212,8 +207,9 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById('menu').classList.toggle('active');
+      document.getElementById('mobileMenu').classList.toggle('active');
     }
   </script>
+
 </body>
 </html>
